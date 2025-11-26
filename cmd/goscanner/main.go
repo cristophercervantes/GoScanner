@@ -373,7 +373,6 @@ func parseFlags() scannertypes.ScanConfig {
 		fmt.Println("Usage: goscanner [Scan Type] [Options] {target specification}")
 		fmt.Println("\nTARGET SPECIFICATION:")
 		fmt.Println("  Can pass IPv4 addresses, hostnames, CIDR ranges, or IP ranges:")
-		fmt.Println("    scanme.nmap.org")
 		fmt.Println("    192.168.1.1")
 		fmt.Println("    192.168.1.0/24")
 		fmt.Println("    192.168.1.1-100")
