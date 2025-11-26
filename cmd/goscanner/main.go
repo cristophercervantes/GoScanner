@@ -425,7 +425,7 @@ func parseFlags() scannertypes.ScanConfig {
 		fmt.Println("    goscanner -skip-discovery -target 192.168.1.1 -ports 1-100")
 		
 		fmt.Println("  Port Scanning:")
-		fmt.Println("    goscanner -target scanme.nmap.org -ports 22,80,443")
+		fmt.Println("    goscanner -target example.com -ports 22,80,443")
 		fmt.Println("    goscanner -input-file targets.txt -ports 1-1000")
 	}
 	
