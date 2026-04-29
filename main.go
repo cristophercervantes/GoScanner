@@ -51,9 +51,9 @@ func main() {
 
 	if *target == "" {
 		fmt.Fprintln(os.Stderr, "Error: -target is required")
-		fmt.Fprintln(os.Stderr, "Usage: goscanner -target <host> [options]")
-		fmt.Fprintln(os.Stderr, "       goscanner -update")
-		fmt.Fprintln(os.Stderr, "       goscanner -version")
+		fmt.Fprintln(os.Stderr, "Usage: GoScanner -target <host> [options]")
+		fmt.Fprintln(os.Stderr, "       GoScanner -update")
+		fmt.Fprintln(os.Stderr, "       GoScanner -version")
 		flag.PrintDefaults()
 		os.Exit(1)
 	}
