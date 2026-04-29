@@ -91,34 +91,34 @@ goscanner -check-update
 
 ```bash
 # Scan a single host (uses 18 common ports by default)
-goscanner -target 192.168.1.1
+GoScanner -target 192.168.1.1
 
 # Scan a subnet
-goscanner -target 192.168.1.0/24
+GoScanner -target 192.168.1.0/24
 
 # Scan specific ports
-goscanner -target 192.168.1.1 -ports 22,80,443,8080
+GoScanner -target 192.168.1.1 -ports 22,80,443,8080
 
 # Scan a port range
-goscanner -target 192.168.1.1 -ports 1-1000
+GoScanner -target 192.168.1.1 -ports 1-1000
 
 # Discover live hosts only — no port scan
-goscanner -target 192.168.1.0/24 -ping-only
+GoScanner -target 192.168.1.0/24 -ping-only
 
 # Skip host discovery and scan all targets directly
-goscanner -target 192.168.1.0/24 -skip-discovery -ports 80,443
+GoScanner -target 192.168.1.0/24 -skip-discovery -ports 80,443
 
 # Output as JSON
-goscanner -target 192.168.1.1 -output json
+GoScanner -target 192.168.1.1 -output json
 
 # Save results to a file
-goscanner -target 192.168.1.0/24 -save results.json
+GoScanner -target 192.168.1.0/24 -save results.json
 
 # List all expanded targets without scanning
-goscanner -list-targets 192.168.1.0/24
+GoScanner -list-targets 192.168.1.0/24
 
 # Tune speed — more workers, shorter timeout
-goscanner -target 192.168.1.1 -workers 1000 -timeout 1000
+GoScanner -target 192.168.1.1 -workers 1000 -timeout 1000
 ```
 
 ## Flags
