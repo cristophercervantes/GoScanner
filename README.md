@@ -54,7 +54,7 @@ chmod +x goscanner_linux_amd64
 **Option 1 — go install (recommended if you have Go):**
 
 ```bash
-go install github.com/cristophercervantes/GoScanner/cmd/goscanner@latest
+go install github.com/cristophercervantes/GoScanner@latest
 ```
 
 **Option 2 — install script (Linux / macOS):**
@@ -70,7 +70,7 @@ The script detects your OS and architecture, then installs the right binary to `
 ```bash
 git clone https://github.com/cristophercervantes/GoScanner.git
 cd GoScanner
-go build -o goscanner ./cmd/goscanner
+go build -o goscanner .
 ```
 
 ## Updating from v1
@@ -192,42 +192,34 @@ When no `-ports` flag is provided, GoScanner checks these 18 common ports:
 
 ```
 GoScanner/
-├── cmd/
-│   └── goscanner/
-│       └── main.go          # Entry point, CLI flags
-├── internal/
-│   ├── scanner/
-│   │   └── scanner.go       # Port scanning, banner grabbing
-│   ├── discovery/
-│   │   └── discovery.go     # Host discovery, TCP probing
-│   ├── output/
-│   │   └── output.go        # Text and JSON formatters
-│   └── updater/
-│       └── updater.go       # Self-update logic
-├── pkg/
-│   └── netutil/
-│       └── netutil.go       # Target parsing, CIDR/range expansion
-├── install.sh               # Universal install script
-└── go.mod
+├── discovery.go        # Host discovery via TCP probing
+├── main.go             # CLI entry point, flags, scan orchestration
+├── netutil.go          # Target parsing, CIDR and range expansion
+├── output.go           # Text and JSON output formatters
+├── scanner.go          # Port scanning and banner grabbing
+├── updater.go          # Self-update via GitHub Releases API
+├── go.mod
+├── install.sh          # Universal install script for Linux/macOS
+└── README.md
 ```
 
 ## Building Your Own Binaries
 
 ```bash
 # Linux 64-bit
-GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o goscanner_linux_amd64 ./cmd/goscanner
+GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o goscanner_linux_amd64 .
 
 # Linux ARM
-GOOS=linux GOARCH=arm64 go build -ldflags="-s -w" -o goscanner_linux_arm64 ./cmd/goscanner
+GOOS=linux GOARCH=arm64 go build -ldflags="-s -w" -o goscanner_linux_arm64 .
 
 # Windows 64-bit
-GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o goscanner_windows_amd64.exe ./cmd/goscanner
+GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o goscanner_windows_amd64.exe .
 
 # macOS Intel
-GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w" -o goscanner_darwin_amd64 ./cmd/goscanner
+GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w" -o goscanner_darwin_amd64 .
 
 # macOS Apple Silicon
-GOOS=darwin GOARCH=arm64 go build -ldflags="-s -w" -o goscanner_darwin_arm64 ./cmd/goscanner
+GOOS=darwin GOARCH=arm64 go build -ldflags="-s -w" -o goscanner_darwin_arm64 .
 ```
 
 The `-ldflags="-s -w"` flag strips debug symbols, keeping binaries around 5MB.
